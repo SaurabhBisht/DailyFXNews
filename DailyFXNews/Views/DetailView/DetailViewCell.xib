@@ -35,13 +35,55 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WWF-Ww-2wn">
                                         <rect key="frame" x="0.0" y="0.0" width="417" height="198"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pgB-nj-U0k">
+                                        <rect key="frame" x="0.0" y="0.0" width="417" height="198"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal">
+                                            <imageReference key="image" image="link.circle.fill" catalog="system" symbolScale="large"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="onContinueClick:" destination="fUt-6c-6Df" eventType="touchUpInside" id="Ei2-ij-S9g"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
-                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="pgB-nj-U0k" secondAttribute="bottom" id="10U-sU-lQy"/>
+                                    <constraint firstItem="pgB-nj-U0k" firstAttribute="top" secondItem="Fls-Yx-gmy" secondAttribute="top" id="ENp-NJ-UvR"/>
+                                    <constraint firstItem="pgB-nj-U0k" firstAttribute="leading" secondItem="Fls-Yx-gmy" secondAttribute="leading" id="KhN-CJ-f2S"/>
+                                    <constraint firstAttribute="trailing" secondItem="pgB-nj-U0k" secondAttribute="trailing" id="QMm-xt-Nrw"/>
                                     <constraint firstItem="WWF-Ww-2wn" firstAttribute="top" secondItem="Fls-Yx-gmy" secondAttribute="top" id="TBw-lx-k4O"/>
                                     <constraint firstAttribute="bottom" secondItem="WWF-Ww-2wn" secondAttribute="bottom" id="cpr-wl-nxO"/>
                                     <constraint firstItem="WWF-Ww-2wn" firstAttribute="leading" secondItem="Fls-Yx-gmy" secondAttribute="leading" id="fXO-yC-oEP"/>
                                     <constraint firstAttribute="trailing" secondItem="WWF-Ww-2wn" secondAttribute="trailing" id="xzJ-mh-BGE"/>
+                                </constraints>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YRG-ik-2te">
+                                <rect key="frame" x="16" y="79" width="401" height="182"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BQc-wY-kTr">
+                                        <rect key="frame" x="0.0" y="0.0" width="401" height="182"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HfK-zH-BBk">
+                                        <rect key="frame" x="0.0" y="0.0" width="401" height="182"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <action selector="onVedioClick:" destination="fUt-6c-6Df" eventType="touchUpInside" id="2HZ-YG-fbX"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="182" id="04F-cy-p9n"/>
+                                    <constraint firstItem="BQc-wY-kTr" firstAttribute="leading" secondItem="YRG-ik-2te" secondAttribute="leading" id="1oj-s6-MyH"/>
+                                    <constraint firstAttribute="bottom" secondItem="HfK-zH-BBk" secondAttribute="bottom" id="L8D-AC-qyz"/>
+                                    <constraint firstItem="HfK-zH-BBk" firstAttribute="top" secondItem="YRG-ik-2te" secondAttribute="top" id="O9v-CJ-xfW"/>
+                                    <constraint firstAttribute="trailing" secondItem="BQc-wY-kTr" secondAttribute="trailing" id="P2S-DC-2Pd"/>
+                                    <constraint firstItem="HfK-zH-BBk" firstAttribute="leading" secondItem="YRG-ik-2te" secondAttribute="leading" id="aDZ-iz-SpC"/>
+                                    <constraint firstAttribute="bottom" secondItem="BQc-wY-kTr" secondAttribute="bottom" id="s3y-VI-uDE"/>
+                                    <constraint firstAttribute="trailing" secondItem="HfK-zH-BBk" secondAttribute="trailing" id="s5p-yI-OCZ"/>
+                                    <constraint firstItem="BQc-wY-kTr" firstAttribute="top" secondItem="YRG-ik-2te" secondAttribute="top" id="sIL-ZA-5kr"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FTSE 100, FTSE 250, GBP/USD, GBP/EUR, BOE HIKE" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPd-s7-uY2">
@@ -53,34 +95,25 @@
                                 <color key="textColor" systemColor="systemPurpleColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pgB-nj-U0k">
-                                <rect key="frame" x="0.0" y="50.5" width="433" height="214"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal">
-                                    <imageReference key="image" image="link.circle.fill" catalog="system" symbolScale="large"/>
-                                </state>
-                                <connections>
-                                    <action selector="onContinueClick:" destination="fUt-6c-6Df" eventType="touchUpInside" id="Ei2-ij-S9g"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.87219604696195152" green="0.87219604696195152" blue="0.87219604696195152" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="hYg-J2-OsO" firstAttribute="leading" secondItem="EYe-Ti-Kmz" secondAttribute="leading" constant="16" id="2ta-U6-mtJ"/>
                             <constraint firstAttribute="trailing" secondItem="qPd-s7-uY2" secondAttribute="trailing" constant="16" id="4Cd-dN-j1q"/>
-                            <constraint firstItem="pgB-nj-U0k" firstAttribute="leading" secondItem="EYe-Ti-Kmz" secondAttribute="leading" id="52s-zc-wHZ"/>
                             <constraint firstAttribute="height" constant="315" id="6wI-bC-MJ3"/>
+                            <constraint firstItem="YRG-ik-2te" firstAttribute="centerY" secondItem="Fls-Yx-gmy" secondAttribute="centerY" id="75W-Dt-ZUI"/>
                             <constraint firstItem="qPd-s7-uY2" firstAttribute="leading" secondItem="EYe-Ti-Kmz" secondAttribute="leading" constant="16" id="7yN-9Q-bfw"/>
                             <constraint firstItem="qPd-s7-uY2" firstAttribute="top" secondItem="Fls-Yx-gmy" secondAttribute="bottom" constant="8" symbolic="YES" id="GwY-Wp-OgM"/>
                             <constraint firstItem="Fls-Yx-gmy" firstAttribute="top" secondItem="EYe-Ti-Kmz" secondAttribute="top" constant="71" id="HLf-sn-Ph4"/>
+                            <constraint firstItem="YRG-ik-2te" firstAttribute="centerX" secondItem="Fls-Yx-gmy" secondAttribute="centerX" id="JDf-9n-1Q8"/>
                             <constraint firstItem="Fls-Yx-gmy" firstAttribute="top" secondItem="hYg-J2-OsO" secondAttribute="bottom" constant="8" id="NMg-42-mlL"/>
-                            <constraint firstItem="pgB-nj-U0k" firstAttribute="height" secondItem="EYe-Ti-Kmz" secondAttribute="height" multiplier="0.679365" id="Ng9-sW-KnV"/>
-                            <constraint firstItem="pgB-nj-U0k" firstAttribute="centerX" secondItem="EYe-Ti-Kmz" secondAttribute="centerX" id="SEJ-uP-4ul"/>
+                            <constraint firstItem="YRG-ik-2te" firstAttribute="top" secondItem="hYg-J2-OsO" secondAttribute="bottom" constant="16" id="VZh-OC-sFI"/>
+                            <constraint firstAttribute="trailing" secondItem="YRG-ik-2te" secondAttribute="trailing" constant="16" id="X9f-iA-VAW"/>
                             <constraint firstAttribute="trailing" secondItem="Fls-Yx-gmy" secondAttribute="trailing" constant="8" id="aNa-UR-GhY"/>
+                            <constraint firstItem="qPd-s7-uY2" firstAttribute="top" secondItem="YRG-ik-2te" secondAttribute="bottom" constant="16" id="cXI-hD-XMJ"/>
                             <constraint firstAttribute="bottom" secondItem="qPd-s7-uY2" secondAttribute="bottom" constant="8" id="cg9-WX-Xuu"/>
+                            <constraint firstItem="YRG-ik-2te" firstAttribute="leading" secondItem="EYe-Ti-Kmz" secondAttribute="leading" constant="16" id="cwi-il-wjH"/>
                             <constraint firstAttribute="trailing" secondItem="hYg-J2-OsO" secondAttribute="trailing" constant="16" id="d0g-S4-bzp"/>
-                            <constraint firstAttribute="trailing" secondItem="pgB-nj-U0k" secondAttribute="trailing" id="eCH-Xg-vzK"/>
-                            <constraint firstItem="pgB-nj-U0k" firstAttribute="centerY" secondItem="EYe-Ti-Kmz" secondAttribute="centerY" id="fV1-i1-2MN"/>
                             <constraint firstItem="Fls-Yx-gmy" firstAttribute="leading" secondItem="EYe-Ti-Kmz" secondAttribute="leading" constant="8" id="pJK-pm-F59"/>
                         </constraints>
                     </view>
@@ -95,16 +128,25 @@
             <connections>
                 <outlet property="imageVw" destination="WWF-Ww-2wn" id="Yo8-X7-S4l"/>
                 <outlet property="layerView" destination="EYe-Ti-Kmz" id="MfO-3a-Aiv"/>
+                <outlet property="photoView" destination="Fls-Yx-gmy" id="OAR-lX-HUd"/>
                 <outlet property="subtitleLbl" destination="qPd-s7-uY2" id="u8S-oa-gVr"/>
                 <outlet property="titleLbl" destination="hYg-J2-OsO" id="KR1-m9-iVC"/>
+                <outlet property="vedioFrame" destination="BQc-wY-kTr" id="aAq-V6-jWD"/>
+                <outlet property="vedioView" destination="YRG-ik-2te" id="VsZ-Ow-TSL"/>
             </connections>
             <point key="canvasLocation" x="139.85507246376812" y="170.42410714285714"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="link.circle.fill" catalog="system" width="128" height="121"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemPurpleColor">
             <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

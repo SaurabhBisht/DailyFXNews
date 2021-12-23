@@ -8,12 +8,16 @@
 import Foundation
 import UIKit
 import Combine
+import AVFoundation
+import AVKit
 
 class DetailedNewsViewController: BaseViewController, ObservableObject{
     
     @IBOutlet weak var nodataLbl: UILabel!
     @IBOutlet weak var tableView: UITableView!
     var newsType = NewsType.breakingNews
+    var player: AVPlayer!
+    var playerViewController: AVPlayerViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,7 +89,7 @@ extension DetailedNewsViewController : UITableViewDataSource,UITableViewDelegate
         case .specialReport:
             specialReportDetails(indexPath, cell)
         }
-
+        
         return cell
     }
     
@@ -118,54 +122,106 @@ extension DetailedNewsViewController : UITableViewDataSource,UITableViewDelegate
     }
     
     fileprivate func breakingNewsDetails(_ indexPath: IndexPath, _ cell: DetailViewCell) {
-        self.fetchImage(url: baseNewsModel?.breakingNews?[indexPath.section].headlineImageUrl ?? "", indexPath, cell)
+        
         nodataLbl.isHidden = false
         cell.titleLbl.text = baseNewsModel?.breakingNews?[indexPath.section].description
         cell.subtitleLbl.text = baseNewsModel?.breakingNews?[indexPath.section].newsKeywords
-        cell.onContinueClick = {[weak self] value in
-            let url = self?.baseNewsModel?.breakingNews?[indexPath.section].url
-            if let url = URL(string:url ?? "") {
-                UIApplication.shared.open(url)
+        
+        if baseNewsModel?.technicalAnalysis?[indexPath.section].videoUrl?.isEmpty ?? true{
+            self.fetchImage(url: baseNewsModel?.breakingNews?[indexPath.section].headlineImageUrl ?? "", indexPath, cell)
+            cell.onContinueClick = {[weak self] value in
+                let url = self?.baseNewsModel?.breakingNews?[indexPath.section].url
+                if let url = URL(string:url ?? "") {
+                    UIApplication.shared.open(url)
+                }
             }
+        } else{
+            playVedio(indexPath: indexPath, cell: cell)
         }
     }
     
     fileprivate func topNewsDetails(_ indexPath: IndexPath, _ cell: DetailViewCell) {
-        self.fetchImage(url: baseNewsModel?.topNews?[indexPath.section].headlineImageUrl ?? "", indexPath, cell)
+        
         nodataLbl.isHidden = true
         cell.titleLbl.text = baseNewsModel?.topNews?[indexPath.section].description
         cell.subtitleLbl.text = baseNewsModel?.topNews?[indexPath.section].newsKeywords
-        cell.onContinueClick = {[weak self] value in
-            let url = self?.baseNewsModel?.topNews?[indexPath.section].url
-            if let url = URL(string:url ?? "") {
-                UIApplication.shared.open(url)
+       
+        if baseNewsModel?.technicalAnalysis?[indexPath.section].videoUrl?.isEmpty ?? true{
+            self.fetchImage(url: baseNewsModel?.topNews?[indexPath.section].headlineImageUrl ?? "", indexPath, cell)
+            cell.onContinueClick = {[weak self] value in
+                let url = self?.baseNewsModel?.topNews?[indexPath.section].url
+                if let url = URL(string:url ?? "") {
+                    UIApplication.shared.open(url)
+                }
             }
+        } else{
+            playVedio(indexPath: indexPath, cell: cell)
         }
     }
     
     fileprivate func analysisNewsDetails(_ indexPath: IndexPath, _ cell: DetailViewCell) {
-        self.fetchImage(url: baseNewsModel?.technicalAnalysis?[indexPath.section].headlineImageUrl ?? "", indexPath, cell)
+        
         nodataLbl.isHidden = true
         cell.titleLbl.text = baseNewsModel?.technicalAnalysis?[indexPath.section].description
         cell.subtitleLbl.text = baseNewsModel?.technicalAnalysis?[indexPath.section].newsKeywords
-        cell.onContinueClick = {[weak self] value in
-            let url = self?.baseNewsModel?.technicalAnalysis?[indexPath.section].url
-            if let url = URL(string:url ?? "") {
-                UIApplication.shared.open(url)
+        
+        if baseNewsModel?.technicalAnalysis?[indexPath.section].videoUrl?.isEmpty ?? true{
+            self.fetchImage(url: baseNewsModel?.technicalAnalysis?[indexPath.section].headlineImageUrl ?? "", indexPath, cell)
+            cell.vedioView.isHidden = true
+            cell.photoView.isHidden = false
+            cell.onContinueClick = {[weak self] value in
+                let url = self?.baseNewsModel?.technicalAnalysis?[indexPath.section].url
+                if let url = URL(string:url ?? "") {
+                    UIApplication.shared.open(url)
+                }
             }
+        }else{
+           playVedio(indexPath: indexPath, cell: cell)
         }
     }
     
     fileprivate func specialReportDetails(_ indexPath: IndexPath, _ cell: DetailViewCell) {
-        self.fetchImage(url: baseNewsModel?.specialReport?[indexPath.section].headlineImageUrl ?? "", indexPath, cell)
+        
         nodataLbl.isHidden = true
         cell.titleLbl.text = baseNewsModel?.specialReport?[indexPath.section].description
         cell.subtitleLbl.text = baseNewsModel?.specialReport?[indexPath.section].newsKeywords
-        cell.onContinueClick = {[weak self] value in
-            let url = self?.baseNewsModel?.specialReport?[indexPath.section].url
-            if let url = URL(string:url ?? "") {
+        
+        if baseNewsModel?.technicalAnalysis?[indexPath.section].videoUrl?.isEmpty ?? true{
+            self.fetchImage(url: baseNewsModel?.specialReport?[indexPath.section].headlineImageUrl ?? "", indexPath, cell)
+            cell.onContinueClick = {[weak self] value in
+                let url = self?.baseNewsModel?.specialReport?[indexPath.section].url
+                if let url = URL(string:url ?? "") {
+                    UIApplication.shared.open(url)
+                }
+            }
+        } else{
+            playVedio(indexPath: indexPath, cell: cell)
+        }
+    }
+    
+    func playVedio(indexPath: IndexPath, cell: DetailViewCell){
+        let urlStr = baseNewsModel?.technicalAnalysis?[indexPath.section].videoUrl ?? ""
+        
+        if baseNewsModel?.technicalAnalysis?[indexPath.section].videoType?.uppercased() == "youtube".uppercased(){
+            if let url = URL(string:urlStr) {
                 UIApplication.shared.open(url)
             }
+        }else{
+            let videoURL = URL(string:urlStr)
+            self.player = AVPlayer(url: videoURL!)
+            self.playerViewController = AVPlayerViewController()
+            playerViewController.player = self.player
+            
+            playerViewController.view.frame = cell.vedioFrame.bounds
+            cell.vedioFrame.addSubview(playerViewController.view)
+            cell.vedioView.isHidden = false
+            cell.photoView.isHidden = true
+            cell.onVedioClick = {[weak self] value in
+                self?.present(self?.playerViewController ?? AVPlayerViewController(), animated: true) {
+                    self?.playerViewController.player?.play()
+                }
+            }
+            
         }
     }
 }

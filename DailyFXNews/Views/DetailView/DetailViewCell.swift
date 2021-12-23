@@ -14,8 +14,13 @@ class DetailViewCell: UITableViewCell {
     @IBOutlet weak var imageVw: UIImageView!
     @IBOutlet weak var subtitleLbl: UILabel!
     @IBOutlet weak var layerView: UIView!
+    @IBOutlet weak var vedioView: UIView!
+    @IBOutlet weak var photoView: UIView!
+    @IBOutlet weak var vedioFrame: UIView!
     
     var onContinueClick : ((_ sender: UIButton) -> Void)?
+    var onVedioClick : ((_ sender: UIButton) -> Void)?
+    
     
     // MARK: - View method
     override func awakeFromNib() {
@@ -26,6 +31,9 @@ class DetailViewCell: UITableViewCell {
         selectionStyle = .none
     }
     // MARK: - Action handler
+    @IBAction func onVedioClick(_ sender: UIButton) {
+        onVedioClick?(sender)
+    }
     @IBAction func onContinueClick(_ sender: UIButton) {
         onContinueClick?(sender)
     }
