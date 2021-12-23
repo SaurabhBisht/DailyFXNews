@@ -10,6 +10,7 @@ import UIKit
 class NewsCategoryView: UICollectionViewCell {
     
     @IBOutlet weak var layerView: UIView!
+    @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var imageVw: UIImageView!
     
     override func awakeFromNib() {

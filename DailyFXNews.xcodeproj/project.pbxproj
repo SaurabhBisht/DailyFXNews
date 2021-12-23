@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		015780E027747AE200BC0B47 /* EnumHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015780DF27747AE200BC0B47 /* EnumHelper.swift */; };
+		015780E227747B0D00BC0B47 /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015780E127747B0D00BC0B47 /* UILabelExtension.swift */; };
+		015780E427747B8F00BC0B47 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015780E327747B8F00BC0B47 /* BaseViewController.swift */; };
 		01A0AD1C2773224100BB533A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0AD1B2773224100BB533A /* AppDelegate.swift */; };
 		01A0AD1E2773224100BB533A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0AD1D2773224100BB533A /* SceneDelegate.swift */; };
 		01A0AD202773224100BB533A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0AD1F2773224100BB533A /* ViewController.swift */; };
@@ -29,6 +32,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		015780DF27747AE200BC0B47 /* EnumHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumHelper.swift; sourceTree = "<group>"; };
+		015780E127747B0D00BC0B47 /* UILabelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
+		015780E327747B8F00BC0B47 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		01A0AD182773224100BB533A /* DailyFXNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyFXNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01A0AD1B2773224100BB533A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01A0AD1D2773224100BB533A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +69,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		015780DE27747ACA00BC0B47 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				01A0AD50277354BB00BB533A /* BaseNewsModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		01A0AD0F2773224100BB533A = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +96,7 @@
 		01A0AD1A2773224100BB533A /* DailyFXNews */ = {
 			isa = PBXGroup;
 			children = (
+				015780DE27747ACA00BC0B47 /* Model */,
 				01A0AD5527738BE900BB533A /* Common */,
 				01A0AD52277378A400BB533A /* API */,
 				01A0AD4D2773540500BB533A /* ViewModel */,
@@ -101,6 +116,7 @@
 		01A0AD2F2773238D00BB533A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				015780E327747B8F00BC0B47 /* BaseViewController.swift */,
 				01A0AD4627733EDC00BB533A /* DetailView */,
 				01A0AD4527733ED000BB533A /* MasterView */,
 			);
@@ -111,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				01A0AD3B2773259300BB533A /* NSObjectExtension.swift */,
+				015780E127747B0D00BC0B47 /* UILabelExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -141,7 +158,6 @@
 			isa = PBXGroup;
 			children = (
 				01A0AD4E2773545800BB533A /* BaseNewsViewModel.swift */,
-				01A0AD50277354BB00BB533A /* BaseNewsModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -158,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				01A0AD5627738BFB00BB533A /* Constants.swift */,
+				015780DF27747AE200BC0B47 /* EnumHelper.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -241,10 +258,13 @@
 				01A0AD3C2773259300BB533A /* NSObjectExtension.swift in Sources */,
 				01A0AD1C2773224100BB533A /* AppDelegate.swift in Sources */,
 				01A0AD1E2773224100BB533A /* SceneDelegate.swift in Sources */,
+				015780E427747B8F00BC0B47 /* BaseViewController.swift in Sources */,
 				01A0AD4827733F7700BB533A /* DetailedNewsViewController.swift in Sources */,
+				015780E027747AE200BC0B47 /* EnumHelper.swift in Sources */,
 				01A0AD51277354BB00BB533A /* BaseNewsModel.swift in Sources */,
 				01A0AD3E2773269200BB533A /* NewCategoryFlowLayout.swift in Sources */,
 				01A0AD4A2773422200BB533A /* DetailViewCell.swift in Sources */,
+				015780E227747B0D00BC0B47 /* UILabelExtension.swift in Sources */,
 				01A0AD5727738BFB00BB533A /* Constants.swift in Sources */,
 				01A0AD33277323C100BB533A /* NewsCategoryView.swift in Sources */,
 				01A0AD372773248100BB533A /* NewCategoryCVViewController.swift in Sources */,

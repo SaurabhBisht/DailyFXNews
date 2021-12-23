@@ -8,16 +8,16 @@
 import Foundation
 import UIKit
 
-class NewCategoryCVViewController:UIViewController, UICollectionViewDataSource, UICollectionViewDelegate,  UICollectionViewDelegateFlowLayout {
+class NewCategoryCVViewController:BaseViewController, UICollectionViewDataSource, UICollectionViewDelegate,  UICollectionViewDelegateFlowLayout {
     
     var collectionView          : UICollectionView!
     var flowLayout              : ColumnFlowLayout!
     var onSelectColumn : ((_ indexPath: IndexPath) -> Void)?
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUp()
+        self.fetchBaseData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -50,16 +50,42 @@ class NewCategoryCVViewController:UIViewController, UICollectionViewDataSource, 
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: NewsCategoryView.className, for: indexPath) as! NewsCategoryView
-        cell.imageVw = UIImageView()
         cell.layerView.tag = 999 + indexPath.row
+       
+        switch Section(rawValue: indexPath.row) {
+        case .breakingNews:
+            self.fetchImage(url: baseNewsModel?.breakingNews?[0].headlineImageUrl ?? "", indexPath, cell)
+            cell.titleLbl.text = "Breaking News"
+        case .topNews:
+            self.fetchImage(url: baseNewsModel?.topNews?[0].headlineImageUrl ?? "", indexPath, cell)
+            cell.titleLbl.text = "Top News"
+        case .technicalAnalysis:
+            self.fetchImage(url: baseNewsModel?.technicalAnalysis?[0].headlineImageUrl ?? "", indexPath, cell)
+            cell.titleLbl.text = "Technical Analysis"
+        case .specialReport:
+            self.fetchImage(url: baseNewsModel?.specialReport?[0].headlineImageUrl ?? "", indexPath, cell)
+            cell.titleLbl.text = "Special Report"
+        default: print("Invalid Option!!")
+        }
+        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //self.onSelectColumn?(indexPath)
-        selectAnimate(indexPath)
+        
         let storyBoard = UIStoryboard(name:"Main", bundle:nil)
         let vc = storyBoard.instantiateViewController(withIdentifier: DetailedNewsViewController.className) as! DetailedNewsViewController
+        vc.baseNewsModel = self.baseNewsModel
+        
+        switch Section(rawValue: indexPath.row) {
+        case .breakingNews: vc.newsType     = NewsType.breakingNews
+        case .topNews: vc.newsType          = NewsType.topNews
+        case .technicalAnalysis:vc.newsType = NewsType.technicalAnalysis
+        case .specialReport: vc.newsType    = NewsType.specialReport
+        default: print("Invalid Option!!")
+        }
+        selectAnimate(indexPath)
+        
         self.navigationController?.pushViewController(vc, animated:true)
         
     }
@@ -90,6 +116,28 @@ class NewCategoryCVViewController:UIViewController, UICollectionViewDataSource, 
                 self.collectionView.cellForItem(at: indexPath)?.viewWithTag(999 + indexPath.row)?.backgroundColor = UIColor.white
             })
         }
+    }
+    
+    fileprivate func fetchBaseData() {
+        self.beginLoad()
+        baseNewsViewModel.getBaseData { response in
+            DispatchQueue.main.async {
+                self.endLoad()
+                self.baseNewsModel = response
+                self.setUp()
+            }
+            
+        }
+    }
+    
+    fileprivate func fetchImage(url:String,_ indexPath: IndexPath, _ cell: NewsCategoryView) {
+        self.beginLoad()
+        self.baseNewsViewModel.getImage(url: url, completionHandler: { image in
+            self.endLoad()
+            DispatchQueue.main.async {
+                cell.imageVw.image = image
+            }
+        })
     }
 }
 
