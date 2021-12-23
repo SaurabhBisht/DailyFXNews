@@ -11,6 +11,7 @@
 		015780E227747B0D00BC0B47 /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015780E127747B0D00BC0B47 /* UILabelExtension.swift */; };
 		015780E427747B8F00BC0B47 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015780E327747B8F00BC0B47 /* BaseViewController.swift */; };
 		015780EC2774B08F00BC0B47 /* DailyFXNewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015780EB2774B08F00BC0B47 /* DailyFXNewsTests.swift */; };
+		0191EF2A2774E17A00E4DDD7 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0191EF292774E17A00E4DDD7 /* AlertHelper.swift */; };
 		01A0AD1C2773224100BB533A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0AD1B2773224100BB533A /* AppDelegate.swift */; };
 		01A0AD1E2773224100BB533A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0AD1D2773224100BB533A /* SceneDelegate.swift */; };
 		01A0AD202773224100BB533A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0AD1F2773224100BB533A /* ViewController.swift */; };
@@ -49,6 +50,7 @@
 		015780E92774B08F00BC0B47 /* DailyFXNewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DailyFXNewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		015780EB2774B08F00BC0B47 /* DailyFXNewsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyFXNewsTests.swift; sourceTree = "<group>"; };
 		015780ED2774B08F00BC0B47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0191EF292774E17A00E4DDD7 /* AlertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		01A0AD182773224100BB533A /* DailyFXNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyFXNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01A0AD1B2773224100BB533A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01A0AD1D2773224100BB533A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 			children = (
 				01A0AD5627738BFB00BB533A /* Constants.swift */,
 				015780DF27747AE200BC0B47 /* EnumHelper.swift */,
+				0191EF292774E17A00E4DDD7 /* AlertHelper.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				01A0AD202773224100BB533A /* ViewController.swift in Sources */,
 				01A0AD3C2773259300BB533A /* NSObjectExtension.swift in Sources */,
 				01A0AD1C2773224100BB533A /* AppDelegate.swift in Sources */,
+				0191EF2A2774E17A00E4DDD7 /* AlertHelper.swift in Sources */,
 				01A0AD1E2773224100BB533A /* SceneDelegate.swift in Sources */,
 				015780E427747B8F00BC0B47 /* BaseViewController.swift in Sources */,
 				01A0AD4827733F7700BB533A /* DetailedNewsViewController.swift in Sources */,

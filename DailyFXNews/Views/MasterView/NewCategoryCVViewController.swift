@@ -134,6 +134,10 @@ class NewCategoryCVViewController:BaseViewController, UICollectionViewDataSource
                     self.setUp()
                 }
             case .failure(let err):
+                DispatchQueue.main.async {
+                self.endLoad()
+                    AlertHelper.showAlert(title: Constants.CommonText.ERROR, message: err.localizedDescription, controller: self)
+                }
                 print(err)
             }
         }

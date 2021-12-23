@@ -27,6 +27,8 @@ class Constants {
     struct CommonText{
         static var NO_DATA = "No Data"
         static var EMPTY = ""
+        static var ERROR = "Error"
+        
     }
     
 }

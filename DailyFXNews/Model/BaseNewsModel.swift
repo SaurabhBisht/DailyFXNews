@@ -10,14 +10,14 @@ import Foundation
     struct BaseNewsModel: Codable {
         var breakingNews: [detail]?
         var topNews: [detail]?
-        var dailyBriefings: [dailybriefings]?
+        var dailyBriefings: [dailybriefing]?
         var technicalAnalysis: [detail]?
         var specialReport: [detail]?
         
         enum CodingKeys: String, CodingKey {
             case breakingNews = "breakingNews"
             case topNews = "topNews"
-            //case dailyBriefings = "dailyBriefings"
+            case dailyBriefings = "dailyBriefings"
             case technicalAnalysis = "technicalAnalysis"
             case specialReport = "specialReport"
             
@@ -28,7 +28,7 @@ import Foundation
             breakingNews = try container.decodeIfPresent([detail].self, forKey: .breakingNews)
             topNews = try container.decodeIfPresent([detail].self, forKey: .topNews)
             technicalAnalysis = try container.decodeIfPresent([detail].self, forKey: .technicalAnalysis)
-            //dailyBriefings = try container.decodeIfPresent([dailybriefings].self, forKey: .dailyBriefings)
+            //dailyBriefings = try container.decodeIfPresent([dailybriefing].self, forKey: .dailyBriefings)
             specialReport = try container.decodeIfPresent([detail].self, forKey: .specialReport)
 
 
@@ -174,7 +174,7 @@ import Foundation
         
     }
     
-    struct dailybriefings: Codable{
+    struct dailybriefing: Codable{
         var eu: [detail]?
         var asia: [detail]?
         var us: [detail]?
