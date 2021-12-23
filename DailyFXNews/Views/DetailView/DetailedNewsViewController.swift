@@ -21,12 +21,12 @@ class DetailedNewsViewController: BaseViewController, ObservableObject{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setTableView()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        navigationItem.title = Constants.NavigationTitles.DETAIL_TITLE
     }
     
     fileprivate func setTableView() {
@@ -126,6 +126,8 @@ extension DetailedNewsViewController : UITableViewDataSource,UITableViewDelegate
         nodataLbl.isHidden = false
         cell.titleLbl.text = baseNewsModel?.breakingNews?[indexPath.section].description
         cell.subtitleLbl.text = baseNewsModel?.breakingNews?[indexPath.section].newsKeywords
+        cell.vedioView.isHidden = true
+        cell.photoView.isHidden = false
         
         if baseNewsModel?.technicalAnalysis?[indexPath.section].videoUrl?.isEmpty ?? true{
             self.fetchImage(url: baseNewsModel?.breakingNews?[indexPath.section].headlineImageUrl ?? "", indexPath, cell)
@@ -136,6 +138,8 @@ extension DetailedNewsViewController : UITableViewDataSource,UITableViewDelegate
                 }
             }
         } else{
+            cell.vedioView.isHidden = false
+            cell.photoView.isHidden = true
             playVedio(indexPath: indexPath, cell: cell)
         }
     }
@@ -145,7 +149,9 @@ extension DetailedNewsViewController : UITableViewDataSource,UITableViewDelegate
         nodataLbl.isHidden = true
         cell.titleLbl.text = baseNewsModel?.topNews?[indexPath.section].description
         cell.subtitleLbl.text = baseNewsModel?.topNews?[indexPath.section].newsKeywords
-       
+        cell.vedioView.isHidden = true
+        cell.photoView.isHidden = false
+        
         if baseNewsModel?.technicalAnalysis?[indexPath.section].videoUrl?.isEmpty ?? true{
             self.fetchImage(url: baseNewsModel?.topNews?[indexPath.section].headlineImageUrl ?? "", indexPath, cell)
             cell.onContinueClick = {[weak self] value in
@@ -155,6 +161,8 @@ extension DetailedNewsViewController : UITableViewDataSource,UITableViewDelegate
                 }
             }
         } else{
+            cell.vedioView.isHidden = false
+            cell.photoView.isHidden = true
             playVedio(indexPath: indexPath, cell: cell)
         }
     }
@@ -164,6 +172,8 @@ extension DetailedNewsViewController : UITableViewDataSource,UITableViewDelegate
         nodataLbl.isHidden = true
         cell.titleLbl.text = baseNewsModel?.technicalAnalysis?[indexPath.section].description
         cell.subtitleLbl.text = baseNewsModel?.technicalAnalysis?[indexPath.section].newsKeywords
+        cell.vedioView.isHidden = true
+        cell.photoView.isHidden = false
         
         if baseNewsModel?.technicalAnalysis?[indexPath.section].videoUrl?.isEmpty ?? true{
             self.fetchImage(url: baseNewsModel?.technicalAnalysis?[indexPath.section].headlineImageUrl ?? "", indexPath, cell)
@@ -176,6 +186,8 @@ extension DetailedNewsViewController : UITableViewDataSource,UITableViewDelegate
                 }
             }
         }else{
+            cell.vedioView.isHidden = false
+            cell.photoView.isHidden = true
            playVedio(indexPath: indexPath, cell: cell)
         }
     }
@@ -185,6 +197,8 @@ extension DetailedNewsViewController : UITableViewDataSource,UITableViewDelegate
         nodataLbl.isHidden = true
         cell.titleLbl.text = baseNewsModel?.specialReport?[indexPath.section].description
         cell.subtitleLbl.text = baseNewsModel?.specialReport?[indexPath.section].newsKeywords
+        cell.vedioView.isHidden = true
+        cell.photoView.isHidden = false
         
         if baseNewsModel?.technicalAnalysis?[indexPath.section].videoUrl?.isEmpty ?? true{
             self.fetchImage(url: baseNewsModel?.specialReport?[indexPath.section].headlineImageUrl ?? "", indexPath, cell)
@@ -195,6 +209,8 @@ extension DetailedNewsViewController : UITableViewDataSource,UITableViewDelegate
                 }
             }
         } else{
+            cell.vedioView.isHidden = false
+            cell.photoView.isHidden = true
             playVedio(indexPath: indexPath, cell: cell)
         }
     }
@@ -203,8 +219,10 @@ extension DetailedNewsViewController : UITableViewDataSource,UITableViewDelegate
         let urlStr = baseNewsModel?.technicalAnalysis?[indexPath.section].videoUrl ?? ""
         
         if baseNewsModel?.technicalAnalysis?[indexPath.section].videoType?.uppercased() == "youtube".uppercased(){
-            if let url = URL(string:urlStr) {
-                UIApplication.shared.open(url)
+            cell.onVedioClick = {[weak self] value in
+                if let url = URL(string:urlStr) {
+                    UIApplication.shared.open(url)
+                }
             }
         }else{
             let videoURL = URL(string:urlStr)
@@ -214,8 +232,6 @@ extension DetailedNewsViewController : UITableViewDataSource,UITableViewDelegate
             
             playerViewController.view.frame = cell.vedioFrame.bounds
             cell.vedioFrame.addSubview(playerViewController.view)
-            cell.vedioView.isHidden = false
-            cell.photoView.isHidden = true
             cell.onVedioClick = {[weak self] value in
                 self?.present(self?.playerViewController ?? AVPlayerViewController(), animated: true) {
                     self?.playerViewController.player?.play()

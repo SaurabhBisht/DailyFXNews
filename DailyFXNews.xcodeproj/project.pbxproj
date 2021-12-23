@@ -10,6 +10,7 @@
 		015780E027747AE200BC0B47 /* EnumHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015780DF27747AE200BC0B47 /* EnumHelper.swift */; };
 		015780E227747B0D00BC0B47 /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015780E127747B0D00BC0B47 /* UILabelExtension.swift */; };
 		015780E427747B8F00BC0B47 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015780E327747B8F00BC0B47 /* BaseViewController.swift */; };
+		015780EC2774B08F00BC0B47 /* DailyFXNewsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015780EB2774B08F00BC0B47 /* DailyFXNewsTests.swift */; };
 		01A0AD1C2773224100BB533A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0AD1B2773224100BB533A /* AppDelegate.swift */; };
 		01A0AD1E2773224100BB533A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0AD1D2773224100BB533A /* SceneDelegate.swift */; };
 		01A0AD202773224100BB533A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0AD1F2773224100BB533A /* ViewController.swift */; };
@@ -31,10 +32,23 @@
 		01A0AD5727738BFB00BB533A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01A0AD5627738BFB00BB533A /* Constants.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		015780EE2774B08F00BC0B47 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 01A0AD102773224100BB533A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 01A0AD172773224100BB533A;
+			remoteInfo = DailyFXNews;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		015780DF27747AE200BC0B47 /* EnumHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumHelper.swift; sourceTree = "<group>"; };
 		015780E127747B0D00BC0B47 /* UILabelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelExtension.swift; sourceTree = "<group>"; };
 		015780E327747B8F00BC0B47 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		015780E92774B08F00BC0B47 /* DailyFXNewsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DailyFXNewsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		015780EB2774B08F00BC0B47 /* DailyFXNewsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyFXNewsTests.swift; sourceTree = "<group>"; };
+		015780ED2774B08F00BC0B47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01A0AD182773224100BB533A /* DailyFXNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DailyFXNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01A0AD1B2773224100BB533A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01A0AD1D2773224100BB533A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +73,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		015780E62774B08F00BC0B47 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		01A0AD152773224100BB533A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -77,10 +98,20 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		015780EA2774B08F00BC0B47 /* DailyFXNewsTests */ = {
+			isa = PBXGroup;
+			children = (
+				015780EB2774B08F00BC0B47 /* DailyFXNewsTests.swift */,
+				015780ED2774B08F00BC0B47 /* Info.plist */,
+			);
+			path = DailyFXNewsTests;
+			sourceTree = "<group>";
+		};
 		01A0AD0F2773224100BB533A = {
 			isa = PBXGroup;
 			children = (
 				01A0AD1A2773224100BB533A /* DailyFXNews */,
+				015780EA2774B08F00BC0B47 /* DailyFXNewsTests */,
 				01A0AD192773224100BB533A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -89,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				01A0AD182773224100BB533A /* DailyFXNews.app */,
+				015780E92774B08F00BC0B47 /* DailyFXNewsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -182,6 +214,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		015780E82774B08F00BC0B47 /* DailyFXNewsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 015780F02774B08F00BC0B47 /* Build configuration list for PBXNativeTarget "DailyFXNewsTests" */;
+			buildPhases = (
+				015780E52774B08F00BC0B47 /* Sources */,
+				015780E62774B08F00BC0B47 /* Frameworks */,
+				015780E72774B08F00BC0B47 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				015780EF2774B08F00BC0B47 /* PBXTargetDependency */,
+			);
+			name = DailyFXNewsTests;
+			productName = DailyFXNewsTests;
+			productReference = 015780E92774B08F00BC0B47 /* DailyFXNewsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		01A0AD172773224100BB533A /* DailyFXNews */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 01A0AD2C2773224500BB533A /* Build configuration list for PBXNativeTarget "DailyFXNews" */;
@@ -208,6 +258,10 @@
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
+					015780E82774B08F00BC0B47 = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = 01A0AD172773224100BB533A;
+					};
 					01A0AD172773224100BB533A = {
 						CreatedOnToolsVersion = 12.5;
 					};
@@ -227,11 +281,19 @@
 			projectRoot = "";
 			targets = (
 				01A0AD172773224100BB533A /* DailyFXNews */,
+				015780E82774B08F00BC0B47 /* DailyFXNewsTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		015780E72774B08F00BC0B47 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		01A0AD162773224100BB533A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -247,6 +309,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		015780E52774B08F00BC0B47 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				015780EC2774B08F00BC0B47 /* DailyFXNewsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		01A0AD142773224100BB533A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -273,6 +343,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		015780EF2774B08F00BC0B47 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 01A0AD172773224100BB533A /* DailyFXNews */;
+			targetProxy = 015780EE2774B08F00BC0B47 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		01A0AD212773224100BB533A /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -293,6 +371,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		015780F12774B08F00BC0B47 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J2V3V6TAN6;
+				INFOPLIST_FILE = DailyFXNewsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.saurabh.bisht.DailyFXNewsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DailyFXNews.app/DailyFXNews";
+			};
+			name = Debug;
+		};
+		015780F22774B08F00BC0B47 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = J2V3V6TAN6;
+				INFOPLIST_FILE = DailyFXNewsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.saurabh.bisht.DailyFXNewsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DailyFXNews.app/DailyFXNews";
+			};
+			name = Release;
+		};
 		01A0AD2A2773224500BB533A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -450,6 +568,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		015780F02774B08F00BC0B47 /* Build configuration list for PBXNativeTarget "DailyFXNewsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				015780F12774B08F00BC0B47 /* Debug */,
+				015780F22774B08F00BC0B47 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		01A0AD132773224100BB533A /* Build configuration list for PBXProject "DailyFXNews" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

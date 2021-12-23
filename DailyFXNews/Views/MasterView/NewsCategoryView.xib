@@ -32,6 +32,12 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Data" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="StN-Pa-EsF">
+                                <rect key="frame" x="0.0" y="31.5" width="170" height="17"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -40,10 +46,14 @@
                             <constraint firstAttribute="trailing" secondItem="XhQ-b9-vXf" secondAttribute="trailing" id="Cnt-Bc-apF"/>
                             <constraint firstItem="XhQ-b9-vXf" firstAttribute="leading" secondItem="q5e-h0-waf" secondAttribute="leading" id="FSl-iH-yv4"/>
                             <constraint firstItem="XhQ-b9-vXf" firstAttribute="centerX" secondItem="q5e-h0-waf" secondAttribute="centerX" id="TnX-rg-hUk"/>
+                            <constraint firstItem="StN-Pa-EsF" firstAttribute="centerY" secondItem="q5e-h0-waf" secondAttribute="centerY" id="ZhW-n0-PVf"/>
+                            <constraint firstItem="StN-Pa-EsF" firstAttribute="leading" secondItem="q5e-h0-waf" secondAttribute="leading" id="cLV-fA-yxy"/>
                             <constraint firstItem="ytx-yq-qQq" firstAttribute="top" secondItem="q5e-h0-waf" secondAttribute="top" id="cWm-gK-5WT"/>
                             <constraint firstItem="ytx-yq-qQq" firstAttribute="leading" secondItem="q5e-h0-waf" secondAttribute="leading" id="dZ2-du-Rup"/>
                             <constraint firstAttribute="bottom" secondItem="XhQ-b9-vXf" secondAttribute="bottom" id="hug-oS-rJi"/>
+                            <constraint firstAttribute="trailing" secondItem="StN-Pa-EsF" secondAttribute="trailing" id="m3i-bb-f5d"/>
                             <constraint firstAttribute="bottom" secondItem="ytx-yq-qQq" secondAttribute="bottom" id="nZa-mV-P8b"/>
+                            <constraint firstItem="StN-Pa-EsF" firstAttribute="centerX" secondItem="q5e-h0-waf" secondAttribute="centerX" id="sny-kp-x02"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -59,6 +69,7 @@
             <connections>
                 <outlet property="imageVw" destination="ytx-yq-qQq" id="rGs-aa-QdO"/>
                 <outlet property="layerView" destination="q5e-h0-waf" id="Kdu-8W-5lB"/>
+                <outlet property="noDataLbl" destination="StN-Pa-EsF" id="9tj-1q-bgi"/>
                 <outlet property="titleLbl" destination="XhQ-b9-vXf" id="9AR-vM-tPT"/>
             </connections>
             <point key="canvasLocation" x="7.2463768115942031" y="323.4375"/>

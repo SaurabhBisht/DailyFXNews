@@ -7,8 +7,6 @@
 
 import Foundation
 
-
-
 class ServiceInvoker{
     
     public static func downloadImage(url: String, completionHandler: @escaping (Data)->Void) {
@@ -24,16 +22,20 @@ class ServiceInvoker{
         }
     }
     
-    public static func getBaseData(completionHandler: @escaping (Data)->Void) {
-        URLSession.shared.dataTask(with: URL(string: "https://content.dailyfx.com/api/v1/dashboard")!) { (data, response, error) in
+    public static func getBaseData(completionHandler: @escaping (Result<Data, Error>) -> Void) {
+        guard let url = URL(string: Constants.Endpoints.baseDataURL) else {
+            //completionHandler(.failure())
+            return
+        }
+        URLSession.shared.dataTask(with: url) {data, response, error in
             if error == nil{
                 if let data = data {
-                   completionHandler(data)
+                    completionHandler(.success(data))
                 }
-            }else{
+            }else {
                 print(error?.localizedDescription)
+                completionHandler(.failure(error as! Error))
             }
         }.resume()
-        
     }
 }

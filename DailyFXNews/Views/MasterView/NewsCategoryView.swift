@@ -12,6 +12,7 @@ class NewsCategoryView: UICollectionViewCell {
     @IBOutlet weak var layerView: UIView!
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var imageVw: UIImageView!
+    @IBOutlet weak var noDataLbl: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

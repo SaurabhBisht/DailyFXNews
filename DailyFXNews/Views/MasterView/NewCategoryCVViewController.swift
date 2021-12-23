@@ -20,8 +20,9 @@ class NewCategoryCVViewController:BaseViewController, UICollectionViewDataSource
         self.fetchBaseData()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        navigationItem.title = "FX NEWS"
     }
     
     func setUp(){
@@ -54,17 +55,21 @@ class NewCategoryCVViewController:BaseViewController, UICollectionViewDataSource
        
         switch Section(rawValue: indexPath.row) {
         case .breakingNews:
-            self.fetchImage(url: baseNewsModel?.breakingNews?[0].headlineImageUrl ?? "", indexPath, cell)
-            cell.titleLbl.text = "Breaking News"
+            self.fetchImage(url: baseNewsModel?.breakingNews?[0].headlineImageUrl ?? Constants.CommonText.EMPTY, indexPath, cell)
+            cell.titleLbl.text = Constants.NewsTypes.BREAKING_NEWS
+            cell.noDataLbl.text = (baseNewsModel?.breakingNews?.count ?? 0) == 0 ? Constants.CommonText.NO_DATA : Constants.CommonText.EMPTY
         case .topNews:
-            self.fetchImage(url: baseNewsModel?.topNews?[0].headlineImageUrl ?? "", indexPath, cell)
-            cell.titleLbl.text = "Top News"
+            self.fetchImage(url: baseNewsModel?.topNews?[0].headlineImageUrl ?? Constants.CommonText.EMPTY, indexPath, cell)
+            cell.titleLbl.text = Constants.NewsTypes.TOP_NEWS
+            cell.noDataLbl.text = (baseNewsModel?.topNews?.count ?? 0) == 0 ? Constants.CommonText.NO_DATA : Constants.CommonText.EMPTY
         case .technicalAnalysis:
-            self.fetchImage(url: baseNewsModel?.technicalAnalysis?[0].headlineImageUrl ?? "", indexPath, cell)
-            cell.titleLbl.text = "Technical Analysis"
+            self.fetchImage(url: baseNewsModel?.technicalAnalysis?[0].headlineImageUrl ?? Constants.CommonText.EMPTY, indexPath, cell)
+            cell.titleLbl.text = Constants.NewsTypes.ANALYSIS_NEWS
+            cell.noDataLbl.text = (baseNewsModel?.technicalAnalysis?.count ?? 0) == 0 ? Constants.CommonText.NO_DATA : Constants.CommonText.EMPTY
         case .specialReport:
-            self.fetchImage(url: baseNewsModel?.specialReport?[0].headlineImageUrl ?? "", indexPath, cell)
-            cell.titleLbl.text = "Special Report"
+            self.fetchImage(url: baseNewsModel?.specialReport?[0].headlineImageUrl ?? Constants.CommonText.EMPTY, indexPath, cell)
+            cell.titleLbl.text = Constants.NewsTypes.SPECIAL_NEWS
+            cell.noDataLbl.text = (baseNewsModel?.specialReport?.count ?? 0) == 0 ? Constants.CommonText.NO_DATA : Constants.CommonText.EMPTY
         default: print("Invalid Option!!")
         }
         
@@ -99,7 +104,7 @@ class NewCategoryCVViewController:BaseViewController, UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionHeader {
              let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: NewsHeaderView.className, for: indexPath) as! NewsHeaderView
-             sectionHeader.label.text = "Daily FX News"
+             sectionHeader.label.text = Constants.NavigationTitles.MASTER_TITLE
              return sectionHeader
         } else { //No footer in this case but can add option for that
              return UICollectionReusableView()
@@ -120,13 +125,17 @@ class NewCategoryCVViewController:BaseViewController, UICollectionViewDataSource
     
     fileprivate func fetchBaseData() {
         self.beginLoad()
-        baseNewsViewModel.getBaseData { response in
-            DispatchQueue.main.async {
-                self.endLoad()
-                self.baseNewsModel = response
-                self.setUp()
+        baseNewsViewModel.getBaseData  { result in
+            switch result {
+            case .success(let response):
+                DispatchQueue.main.async {
+                    self.endLoad()
+                    self.baseNewsModel = response
+                    self.setUp()
+                }
+            case .failure(let err):
+                print(err)
             }
-            
         }
     }
     

@@ -14,22 +14,28 @@ struct BaseNewsViewModel{
         var id = ""
     }
     
-    func getBaseData(completionHandler: @escaping (BaseNewsModel)->Void){
-        ServiceInvoker.getBaseData { data in
-            
+    func getBaseData(completionHandler: @escaping (Result<BaseNewsModel, Error>) -> Void)  {
+        ServiceInvoker.getBaseData { result in
             let decode = JSONDecoder()
             decode.dateDecodingStrategy = .iso8601
-            
-            do{
-                let userResponse = try decode.decode(BaseNewsModel.self, from: data)
-                //print(userResponse)
-                completionHandler(userResponse)
-            }catch let err{
-                print(err.localizedDescription)
+            switch result {
+            case .success(let data):
+                do{
+                    let userResponse = try decode.decode(BaseNewsModel.self, from: data)
+                    //print(userResponse)
+                    completionHandler(.success(userResponse))
+                    
+                }catch let err{
+                    print(err.localizedDescription)
+                    completionHandler(.failure(err))
+                    return
+                }
+            case .failure(let err):
+                completionHandler(.failure(err))
             }
         }
     }
-    
+
     func getImage(url:String, completionHandler: @escaping (UIImage)->Void){
         var image = UIImage()
         ServiceInvoker.downloadImage(url: url, completionHandler: { data in
