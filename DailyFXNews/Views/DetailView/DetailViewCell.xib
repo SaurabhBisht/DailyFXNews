@@ -3,6 +3,8 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,11 +20,20 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EYe-Ti-Kmz">
                         <rect key="frame" x="16" y="8" width="433" height="315"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BoE rate hike impact on UK assets 3-months after liftoff" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hYg-J2-OsO">
+                                <rect key="frame" x="16" y="22" width="401" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="SfO-XR-4Ul"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.024768330160000001" green="0.15845680240000001" blue="0.52944314479999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fls-Yx-gmy">
-                                <rect key="frame" x="8" y="71" width="417" height="194"/>
+                                <rect key="frame" x="8" y="71" width="417" height="198"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WWF-Ww-2wn">
-                                        <rect key="frame" x="0.0" y="0.0" width="417" height="194"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="417" height="198"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -33,35 +44,43 @@
                                     <constraint firstAttribute="trailing" secondItem="WWF-Ww-2wn" secondAttribute="trailing" id="xzJ-mh-BGE"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPd-s7-uY2">
-                                <rect key="frame" x="16" y="273" width="401" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hYg-J2-OsO">
-                                <rect key="frame" x="16" y="17" width="401" height="32"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FTSE 100, FTSE 250, GBP/USD, GBP/EUR, BOE HIKE" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPd-s7-uY2">
+                                <rect key="frame" x="16" y="277" width="401" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="32" id="SfO-XR-4Ul"/>
+                                    <constraint firstAttribute="height" constant="30" id="nSg-jJ-MLe"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" systemColor="systemPurpleColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pgB-nj-U0k">
+                                <rect key="frame" x="0.0" y="50.5" width="433" height="214"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="link.circle.fill" catalog="system" symbolScale="large"/>
+                                </state>
+                                <connections>
+                                    <action selector="onContinueClick:" destination="fUt-6c-6Df" eventType="touchUpInside" id="Ei2-ij-S9g"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.87219604696195152" green="0.87219604696195152" blue="0.87219604696195152" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="hYg-J2-OsO" firstAttribute="leading" secondItem="EYe-Ti-Kmz" secondAttribute="leading" constant="16" id="2ta-U6-mtJ"/>
                             <constraint firstAttribute="trailing" secondItem="qPd-s7-uY2" secondAttribute="trailing" constant="16" id="4Cd-dN-j1q"/>
+                            <constraint firstItem="pgB-nj-U0k" firstAttribute="leading" secondItem="EYe-Ti-Kmz" secondAttribute="leading" id="52s-zc-wHZ"/>
                             <constraint firstAttribute="height" constant="315" id="6wI-bC-MJ3"/>
                             <constraint firstItem="qPd-s7-uY2" firstAttribute="leading" secondItem="EYe-Ti-Kmz" secondAttribute="leading" constant="16" id="7yN-9Q-bfw"/>
                             <constraint firstItem="qPd-s7-uY2" firstAttribute="top" secondItem="Fls-Yx-gmy" secondAttribute="bottom" constant="8" symbolic="YES" id="GwY-Wp-OgM"/>
                             <constraint firstItem="Fls-Yx-gmy" firstAttribute="top" secondItem="EYe-Ti-Kmz" secondAttribute="top" constant="71" id="HLf-sn-Ph4"/>
-                            <constraint firstItem="Fls-Yx-gmy" firstAttribute="top" secondItem="hYg-J2-OsO" secondAttribute="bottom" constant="22" id="NMg-42-mlL"/>
+                            <constraint firstItem="Fls-Yx-gmy" firstAttribute="top" secondItem="hYg-J2-OsO" secondAttribute="bottom" constant="8" id="NMg-42-mlL"/>
+                            <constraint firstItem="pgB-nj-U0k" firstAttribute="height" secondItem="EYe-Ti-Kmz" secondAttribute="height" multiplier="0.679365" id="Ng9-sW-KnV"/>
+                            <constraint firstItem="pgB-nj-U0k" firstAttribute="centerX" secondItem="EYe-Ti-Kmz" secondAttribute="centerX" id="SEJ-uP-4ul"/>
                             <constraint firstAttribute="trailing" secondItem="Fls-Yx-gmy" secondAttribute="trailing" constant="8" id="aNa-UR-GhY"/>
-                            <constraint firstAttribute="bottom" secondItem="qPd-s7-uY2" secondAttribute="bottom" constant="21" id="cg9-WX-Xuu"/>
+                            <constraint firstAttribute="bottom" secondItem="qPd-s7-uY2" secondAttribute="bottom" constant="8" id="cg9-WX-Xuu"/>
                             <constraint firstAttribute="trailing" secondItem="hYg-J2-OsO" secondAttribute="trailing" constant="16" id="d0g-S4-bzp"/>
-                            <constraint firstItem="hYg-J2-OsO" firstAttribute="top" secondItem="EYe-Ti-Kmz" secondAttribute="top" constant="17" id="der-cx-Wye"/>
+                            <constraint firstAttribute="trailing" secondItem="pgB-nj-U0k" secondAttribute="trailing" id="eCH-Xg-vzK"/>
+                            <constraint firstItem="pgB-nj-U0k" firstAttribute="centerY" secondItem="EYe-Ti-Kmz" secondAttribute="centerY" id="fV1-i1-2MN"/>
                             <constraint firstItem="Fls-Yx-gmy" firstAttribute="leading" secondItem="EYe-Ti-Kmz" secondAttribute="leading" constant="8" id="pJK-pm-F59"/>
                         </constraints>
                     </view>
@@ -75,8 +94,17 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="imageVw" destination="WWF-Ww-2wn" id="Yo8-X7-S4l"/>
+                <outlet property="layerView" destination="EYe-Ti-Kmz" id="MfO-3a-Aiv"/>
+                <outlet property="subtitleLbl" destination="qPd-s7-uY2" id="u8S-oa-gVr"/>
+                <outlet property="titleLbl" destination="hYg-J2-OsO" id="KR1-m9-iVC"/>
             </connections>
             <point key="canvasLocation" x="139.85507246376812" y="170.42410714285714"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="link.circle.fill" catalog="system" width="128" height="121"/>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
